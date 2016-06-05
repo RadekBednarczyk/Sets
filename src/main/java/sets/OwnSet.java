@@ -13,14 +13,16 @@ public class OwnSet<E> implements Set<E> {
     }
 
     public OwnSet(E... elements) {
-        for (E element : elements) {
-            checkUnique(element);
-            list.add((Integer) element);
-
-        }
+    	if(elements!= null){
+	        for (E element : elements) {
+	            checkUnique(element);
+	            list.add((Integer) element);
+	
+	        }
+    	}
     }
 
-    private void checkUnique(E element) {
+    public void checkUnique(E element) {
         if (list.contains(element)) {
             throw new IllegalArgumentException("Only unique elements!");
         }
